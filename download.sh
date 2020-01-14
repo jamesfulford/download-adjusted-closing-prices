@@ -12,6 +12,8 @@ OUTPUTSIZE="full"  # "compact" for quicker but less data
 start_time=$(date +%s)
 next_minute=$(($start_time+60))
 
+mkdir -p output
+
 function get_daily_csv() {
     local symbol="$1"
     local retries="${2:-"3"}"
