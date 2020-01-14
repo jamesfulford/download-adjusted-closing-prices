@@ -3,5 +3,5 @@ Alphavantage exposes a `TIME_SERIES_DAILY_ADJUSTED` API behind some serious rate
 
 ## Usage
 ```
-ALPHAVANGAGE_API_KEY=PUT_YOUR_ALPHAVANTAGE_KEY_HERE bash download.sh s_and_p_500.txt
+ALPHAVANTAGE_API_KEY=PUT_YOUR_ALPHAVANTAGE_KEY_HERE bash download.sh s_and_p_500.txt
 ```

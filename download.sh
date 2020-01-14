@@ -6,7 +6,7 @@
 # Rate limiting:
 # 5 per minute (300/hour)
 # 500 per day
-ALPHAVANGAGE_API_KEY=${ALPHAVANGAGE_API_KEY:-"demo"}
+ALPHAVANTAGE_API_KEY=${ALPHAVANTAGE_API_KEY:-"demo"}
 OUTPUTSIZE="full"  # "compact" for quicker but less data
 
 start_time=$(date +%s)
@@ -17,7 +17,7 @@ mkdir -p output
 function get_daily_csv() {
     local symbol="$1"
     local retries="${2:-"3"}"
-    curl "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${ALPHAVANGAGE_API_KEY}&datatype=csv&outputsize=${OUTPUTSIZE}" > ./output/$symbol.csv
+    curl "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${ALPHAVANTAGE_API_KEY}&datatype=csv&outputsize=${OUTPUTSIZE}" > ./output/$symbol.csv
     asdf=$(head ./output/$symbol.csv | grep -c "{")
     if [[ "0" != "$asdf" ]]; then
         retries=$((retries-1))
